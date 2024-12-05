@@ -13,20 +13,20 @@ knitr::opts_chunk$set(
 )
 ```
 
-# foofactors
+# mytoolkitr
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of foofactors is to ...
+The goal of mytoolkitr is to ...
 
 ## Installation
 
-You can install the development version of foofactors from [GitHub](https://github.com/) with:
+You can install the development version of mytoolkitr from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pak("AlexPGroot/foofactors")
+pak::pak("AlexPGroot/mytoolkitr")
 ```
 
 ## Example
@@ -34,7 +34,7 @@ pak::pak("AlexPGroot/foofactors")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-library(foofactors)
+library(mytoolkitr)
 ## basic example code
 ```
 

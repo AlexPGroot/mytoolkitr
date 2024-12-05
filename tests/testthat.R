@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(foofactors)
+library(mytoolkitr)
 
-test_check("foofactors")
+test_check("mytoolkitr")
