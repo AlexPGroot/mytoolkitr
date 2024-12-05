@@ -1,0 +1,15 @@
+Package: foofactors
+Title: Time-saving packages
+Version: 0.0.0.9000
+Authors@R: 
+    person("Alex", "Groot", , "alex_groot@icloud.com", role = c("aut", "cre"))
+Description: This package contains steps I like to perform in R, but functionized: converting table headers, contents, creating easy tables and data. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    stringr
