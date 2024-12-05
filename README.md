@@ -1,29 +1,38 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# foofactors
+# mytoolkitr
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of foofactors is to …
+mytoolkitr is my personal R package in which I add functions I liked to
+use for fun or QoL.
 
 ## Installation
 
-You can install the development version of foofactors from
+You can install the development version of mytoolkitr from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pak("AlexPGroot/foofactors")
+pak::pak("AlexPGroot/mytoolkitr")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+The current included functions are:
+
+``` bash
+ls R
+#> generate_dummy_df.R
+#> peek_table.R
+#> range_to_numeric.R
+#> usable_colnames.R
+```
 
 ``` r
-library(foofactors)
+library(mytoolkitr)
 ## basic example code
 ```
 
