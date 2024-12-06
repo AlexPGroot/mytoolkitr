@@ -1,0 +1,97 @@
+---
+title: "mytoolkitr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mytoolkitr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mytoolkitr)
+```
+
+mytoolkitr is my personal R package in which I add functions I liked to use for fun or QoL.
+
+## Installation
+
+You can install the development version of mytoolkitr from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("AlexPGroot/mytoolkitr")
+```
+## Summary
+The current included functions are:
+
+```
+usable_colnames.R
+range_to_numeric.R
+peek_table.R
+generate_dummy_df.R
+```
+
+```{r}
+library(mytoolkitr) #load package
+```
+
+## generate_dummy_df
+In order to quickly generate a data.frame with random data we can use `generate_dummy_df`.
+```{r}
+example_dummy_df <- generate_dummy_df()
+print(example_dummy_df)
+```
+## peek_table
+Instead of using `View()` to get a global overview of a data.frame or tibble we can use `peek_table()` for a table containing the head, tail, row number and an indicator for the middle.
+```{r}
+example_dummy_df_2 <- generate_dummy_df(rows_n = 100, cols_n = 6)
+peek_table(example_dummy_df_2, ID = FALSE)
+```
+Or combined with `knitr::kable()`
+```{r}
+knitr::kable(peek_table(example_dummy_df_2, ID = FALSE))
+```
+
+## range_to_numeric
+Some data sets provide character data ranges which have numeric values stored within. In order to extract the numeric values from the character values so we can use these character values as numeric values, for example in machine learning using the values as numerical data instead of factor data.
+<br>
+By default it takes the middle point, however there are also methods for min and max.
+```{r}
+example_dummy_df_3 <- generate_dummy_df(cols_n = 2, col_types = c("character", "range"))
+peek_table(example_dummy_df_3, ID = FALSE, head_n = 3, tail_n = 3)
+
+example_dummy_df_3$var2 <- range_to_numeric(example_dummy_df_3$var2)
+peek_table(example_dummy_df_3, ID = FALSE, head_n = 3, tail_n = 3)
+```
+The fourth method that can be used is average:
+```{r}
+example_dummy_df_4 <- generate_dummy_df(cols_n = 2, col_types = c("character", "range"))
+peek_table(example_dummy_df_4, ID = FALSE, head_n = 3, tail_n = 3)
+
+example_dummy_df_4 <- dplyr::mutate(example_dummy_df_4, var2 = sapply(var2, range_to_numeric, method = "average"))
+peek_table(example_dummy_df_4)
+```
+Average takes a bit of mutate and sapply due to how the function works, otherwise it takes the average of all rows together instead of the range.
+
+## usable_colnames
+The data set we received in this example has some unconventional colnames with characters that will make it take a bit more effort to use.
+```{r}
+table_rds <- readxl::read_xlsx("../examples/headertestingxlsx.xlsx")
+head(table_rds)
+colnames(table_rds)
+```
+We can use `usable_colnames` to roughly automatically clean up those columns.
+```{r}
+table_rds_clean <- table_rds
+colnames(table_rds_clean) <- usable_colnames(table_rds, case_lower = TRUE, space_to = "_")
+peek_table(table_rds_clean)
+colnames(table_rds_clean)
+```
+
