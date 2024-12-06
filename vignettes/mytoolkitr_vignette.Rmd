@@ -52,11 +52,11 @@ print(example_dummy_df)
 Instead of using `View()` to get a global overview of a data.frame or tibble we can use `peek_table()` for a table containing the head, tail, row number and an indicator for the middle.
 ```{r}
 example_dummy_df_2 <- generate_dummy_df(rows_n = 100, cols_n = 6)
-peek_table(example_dummy_df_2, ID = FALSE)
+peek_table(example_dummy_df_2)
 ```
 Or combined with `knitr::kable()`
 ```{r}
-knitr::kable(peek_table(example_dummy_df_2, ID = FALSE))
+knitr::kable(peek_table(example_dummy_df_2))
 ```
 
 ## range_to_numeric
@@ -65,16 +65,16 @@ Some data sets provide character data ranges which have numeric values stored wi
 By default it takes the middle point, however there are also methods for min and max.
 ```{r}
 example_dummy_df_3 <- generate_dummy_df(cols_n = 2, col_types = c("character", "range"))
-peek_table(example_dummy_df_3, ID = FALSE, head_n = 3, tail_n = 3)
+peek_table(example_dummy_df_3, head_n = 3, tail_n = 3)
 
 example_dummy_df_3$var2 <- range_to_numeric(example_dummy_df_3$var2)
-peek_table(example_dummy_df_3, ID = FALSE, head_n = 3, tail_n = 3)
+peek_table(example_dummy_df_3, head_n = 3, tail_n = 3)
 ```
 The fourth method that can be used is average:
 ```{r}
 library(dplyr)
 example_dummy_df_4 <- generate_dummy_df(cols_n = 2, col_types = c("character", "range"))
-peek_table(example_dummy_df_4, ID = FALSE, head_n = 3, tail_n = 3)
+peek_table(example_dummy_df_4, head_n = 3, tail_n = 3)
 
 example_dummy_df_4 <- dplyr::mutate(example_dummy_df_4, var2 = sapply(var2, range_to_numeric, method = "average"))
 peek_table(example_dummy_df_4)
