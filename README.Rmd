@@ -25,8 +25,7 @@ mytoolkitr is my personal R package in which I add functions I liked to use for 
 You can install the development version of mytoolkitr from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("AlexPGroot/mytoolkitr")
+devtools::install_github("AlexPGroot/mytoolkitr", build_vignettes = TRUE)
 ```
 ## Summary
 The current included functions are:
