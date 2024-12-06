@@ -14,7 +14,7 @@
 peek_table <- function(table_input,
                        head_n = 6,
                        tail_n = 6,
-                       ID = TRUE) {
+                       ID = FALSE) {
   if (!is.numeric(head_n) || head_n < 0) stop("head_n must be int >0")
   if (!is.numeric(tail_n) || tail_n < 0) stop("tail_n must be int >0")
   if (ID == TRUE) { # Add ID column

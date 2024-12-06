@@ -13,12 +13,12 @@ test_that("General table structure stays consistent", {
 
 # Test 2.2: General table structure
 test_that("General table structure stays consistent", {
-  expect_equal(ncol(example_table_peek), c(7))
+  expect_equal(ncol(example_table_peek), c(6))
 })
 
 # Test 2.3: General table structure
 test_that("General table structure stays consistent", {
-  expect_equal(colnames(example_table_peek), c("ID", "Ozone", "Solar.R", "Wind", "Temp", "Month", "Day"))
+  expect_equal(colnames(example_table_peek), c("Ozone", "Solar.R", "Wind", "Temp", "Month", "Day"))
 })
 
 # Test 3.1: Even with 0 head/tail input generates a "table" with just "..."

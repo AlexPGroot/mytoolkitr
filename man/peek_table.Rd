@@ -4,7 +4,7 @@
 \alias{peek_table}
 \title{Create small tables for overview}
 \usage{
-peek_table(table_input, head_n = 6, tail_n = 6, ID = TRUE)
+peek_table(table_input, head_n = 6, tail_n = 6, ID = FALSE)
 }
 \arguments{
 \item{table_input}{data.frame or tibble}
