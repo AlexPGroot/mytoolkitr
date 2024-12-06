@@ -72,6 +72,7 @@ peek_table(example_dummy_df_3, ID = FALSE, head_n = 3, tail_n = 3)
 ```
 The fourth method that can be used is average:
 ```{r}
+library(dplyr)
 example_dummy_df_4 <- generate_dummy_df(cols_n = 2, col_types = c("character", "range"))
 peek_table(example_dummy_df_4, ID = FALSE, head_n = 3, tail_n = 3)
 
